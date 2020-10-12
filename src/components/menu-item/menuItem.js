@@ -1,10 +1,10 @@
 import React from 'react';
 import './menu-item.sass';
+import {withRouter} from 'react-router-dom';
 
-
-const MenuItem = ({title,imageUrl,size}) => {
+const MenuItem = ({title,imageUrl,size, history}) => {
     return (
-    <div className={`${size} menu-item`}>
+    <div className={`${size} menu-item`} onClick={() => history.push()}>
         <div style={{backgroundImage:`url(${imageUrl})`}} className='background-image' />
         {/* receiving props from directory and image div set to background*/}
         <div className='content'>
@@ -16,4 +16,4 @@ const MenuItem = ({title,imageUrl,size}) => {
     )
 }
 
-export default MenuItem;
+export default withRouter(MenuItem);
